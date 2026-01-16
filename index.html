@@ -3,362 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>케어셀라 에코어스노우 유황비누 - 공식 상세페이지</title>
-    <!-- Tailwind CSS CDN -->
+    <title>케어셀라 에코어스노우 유황비누</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #fff; color: #333; overflow-x: hidden; margin: 0; padding: 0; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .bg-beige { background-color: #f9f7f2; }
+        .text-gold { color: #b89a67; }
+        .bg-gold { background-color: #b89a67; }
+        .cta-button { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15); }
+        img { display: block; width: 100%; height: auto; }
+        /* 섹션 간 간격 클래스 */
+        .section-gap { padding-top: 5rem; padding-bottom: 5rem; }
         
-        :root {
-            scroll-behavior: smooth;
-        }
-
-        body { 
-            font-family: 'Noto Sans KR', sans-serif; 
-            word-break: keep-all; 
-            overflow-x: hidden;
-        }
-
-        /* 스크롤 애니메이션 초기 상태 */
-        .scroll-ani { 
-            opacity: 0; 
-            transform: translateY(30px); 
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); 
-        }
-
-        /* 스크롤 시 나타나는 상태 */
-        .scroll-ani.visible { 
-            opacity: 1; 
-            transform: translateY(0); 
-        }
-
-        /* 배경 그라데이션 */
-        .bg-silk { 
-            background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%); 
-        }
-
-        /* 상단 고정 바 애니메이션 */
-        .fixed-header {
+        /* 카카오톡 원형 플로팅 버튼 스타일 */
+        .floating-kakao {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            bottom: 2.5rem;
+            right: 2.5rem;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transform: translateY(-100%);
-            transition: transform 0.4s ease-in-out;
+            background-color: #FEE500;
+            color: #3A1D1D;
+            width: 3.5rem; /* 버튼 크기 축소 */
+            height: 3.5rem;
+            border-radius: 50%; /* 원형 버튼 */
+            display: flex;
+            flex-direction: column; /* 아이콘과 텍스트 세로 정렬 */
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem; /* 텍스트 크기 축소 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            line-height: 1;
         }
-        .fixed-header.show {
-            transform: translateY(0);
+        .floating-kakao i {
+            font-size: 1.25rem;
+            margin-bottom: 2px;
         }
-
-        /* 정책 안내 아코디언 */
-        #policy-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        #policy-content.open {
-            max-height: 3000px; /* 이미지 높이에 맞게 넉넉히 설정 */
-        }
-
-        /* 이미지 호버 효과 */
-        .img-hover {
-            transition: transform 0.7s duration-700;
-        }
-        .img-hover:hover {
-            transform: scale(1.03);
+        .floating-kakao:hover {
+            transform: scale(1.1);
+            background-color: #F9E000;
         }
     </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white">
 
-    <!-- [상단 고정 구매바] -->
-    <nav id="top-nav" class="fixed-header px-6 py-3">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <span class="font-black text-teal-600 text-lg md:text-xl">CareCella</span>
-                <span class="hidden sm:inline-block text-sm text-gray-400 font-medium border-l border-gray-300 pl-3">에코어스노우 유황비누</span>
-            </div>
-            <a href="https://vcshop.gcoop.com/kr/nonMemberOrder?no=593&signature=54cd96d3114d1f6b2c2448db8eec08234b441eb5547ed470812d6eab16ee8fc9" target="_blank" class="bg-teal-600 text-white px-5 py-2 md:px-8 md:py-2.5 rounded-full font-bold text-sm md:text-base shadow-lg hover:bg-teal-700 transition-all active:scale-95">
-                케어셀라 유황비누(4ea) 구매하기
-            </a>
+    <!-- Section 1: Intro/Hooking -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/ai-product-Style-A-1766762213825.png" alt="CareCella Sulfur Soap" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/30"></div>
         </div>
-    </nav>
-
-    <!-- [Page 1: 인트로/후킹] -->
-    <section class="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16 px-6 bg-silk overflow-hidden">
-        <div class="z-10 text-center mb-16 scroll-ani">
-            <span class="inline-block px-5 py-1.5 bg-teal-600 text-white text-xs font-bold rounded-full mb-8 tracking-widest shadow-xl uppercase">Premium Handmade</span>
-            <h1 class="text-4xl md:text-7xl font-black text-gray-900 leading-[1.15] mb-8">
-                피부가 숨을 쉽니다.<br>2억 5천만 년의 에너지를<br><span class="text-teal-600">한 알에 담았습니다.</span>
+        <div class="relative z-10 text-center text-white px-4">
+            <p class="text-xl md:text-2xl font-light tracking-widest mb-4 opacity-0 animate-[fadeIn_1s_ease-out_forwards]">PREMIUM HANDMADE</p>
+            <h1 class="text-4xl md:text-7xl font-bold leading-tight mb-8 drop-shadow-lg">
+                2억 5천만 년의 기다림,<br>피부가 숨을 쉽니다.
             </h1>
-            <p class="text-xl md:text-2xl text-gray-600 font-medium tracking-tight mb-12">케어셀라 에코어스노우 유황비누</p>
+            <p class="text-lg md:text-2xl font-light mb-12 drop-shadow-md">온 가족이 안심하고 사용하는 태고의 정화 에너지</p>
+            <div class="inline-block border-2 border-white px-8 py-3 text-lg font-medium hover:bg-white hover:text-black transition duration-300 cursor-pointer">
+                SCROLL TO EXPLORE
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Visual Impact -->
+    <section class="w-full section-gap bg-white">
+        <div class="max-w-7xl mx-auto">
+            <img src="images/1_유황비누.jpg" alt="Sulfur Soap Main Visual" class="fade-in">
+        </div>
+    </section>
+
+    <!-- Section 3: CP Handmade Process -->
+    <section class="w-full section-gap bg-beige">
+        <div class="max-w-7xl mx-auto">
+            <img src="images/2_CP핸드메이드비누.jpg" alt="Handmade CP Method" class="fade-in">
+        </div>
+    </section>
+
+    <!-- Section 4: Sulfur Efficacy -->
+    <section class="w-full section-gap bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col space-y-10">
+            <img src="images/3유황의효능.jpg" alt="Sulfur Efficacy 1" class="fade-in">
+            <img src="images/4.유황효능.jpg" alt="Sulfur Efficacy 2" class="fade-in">
+        </div>
+    </section>
+
+    <!-- Section 5: Hyaluronic Acid -->
+    <section class="w-full section-gap bg-beige">
+        <div class="max-w-7xl mx-auto flex flex-col space-y-10">
+            <img src="images/5_히알루론산1.jpg" alt="Hyaluronic Acid 1" class="fade-in">
+            <img src="images/6.히알리루론산_2.jpg" alt="Hyaluronic Acid 2" class="fade-in">
+        </div>
+    </section>
+
+    <!-- Section 6: Brand Trust & Achievement -->
+    <section class="section-gap bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in mb-16 text-center">
+                <img src="images/제너럴바이오.jpg" alt="General Bio Branding" class="w-full max-w-4xl mx-auto rounded-3xl shadow-xl mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">전 세계가 인정한 가장 까다로운 기준</h2>
+                <div class="w-20 h-1 bg-gold mx-auto mb-12"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-in">
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold text-gold">당신의 건강을 책임질 19년의 압도적 신뢰</h3>
+                    <ul class="space-y-5 text-lg text-gray-700 leading-relaxed">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-gold mt-1.5 mr-4 shrink-0"></i>
+                            <span>전 세계가 인정한 글로벌 비콥(B Corp) 인증 기업</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-gold mt-1.5 mr-4 shrink-0"></i>
+                            <span>대한민국을 대표하는 자랑스러운 사회적 기업</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-gold mt-1.5 mr-4 shrink-0"></i>
+                            <span>인체와 환경에 안전한 원료 사용, EWG 그린 등급 기준 추구</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-gold mt-1.5 mr-4 shrink-0"></i>
+                            <span>GMP/ISO 인증을 통한 최첨단 제조 시설 관리</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-gold mt-1.5 mr-4 shrink-0"></i>
+                            <span>제너럴바이오 우수기업연구소 인증 / APAC 바이오테크 10대기업 선정</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-beige p-10 rounded-3xl border border-gray-100 shadow-inner">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="text-center">
+                            <i class="fa-solid fa-award text-5xl text-gold mb-4"></i>
+                            <p class="font-bold text-sm">더마테스트<br>EXCELLENT</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-leaf text-5xl text-gold mb-4"></i>
+                            <p class="font-bold text-sm">EWG GREEN<br>기준 추구</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-industry text-5xl text-gold mb-4"></i>
+                            <p class="font-bold text-sm">ISO/GMP<br>생산 관리</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-certificate text-5xl text-gold mb-4"></i>
+                            <p class="font-bold text-sm">B Corp<br>글로벌 인증</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Section with No Added Text -->
+            <div class="mt-24 text-center fade-in">
+                <!-- No Added Text -->
+                <p class="text-xl md:text-2xl font-bold text-gold mb-12 tracking-tight">
+                    무 방부제 · 무 색소 · 무 인공향 · 무합성계면활성제(SLS/SLES)
+                </p>
+
+                <!-- 3 Authentic Reviews -->
+                <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+                    <!-- Review 1 -->
+                    <div class="bg-gray-50 p-10 rounded-3xl border border-gold/10 text-center shadow-sm">
+                        <i class="fa-solid fa-quote-left text-2xl text-gold mb-4"></i>
+                        <p class="text-lg italic leading-relaxed text-gray-700">
+                            "속건조가 정말 심해서 세안 후에 항상 얼굴이 찢어질 듯 아팠는데, 이 비누로 바꾸고 나서 당김이 거의 사라졌어요. 수제 비누라 그런지 확실히 자극이 덜하고 씻고 나면 피부가 정말 보들보들해요."
+                        </p>
+                        <p class="mt-6 text-gray-500 font-bold">- 실사용자 박OO 님 리얼 리뷰</p>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="bg-gray-50 p-10 rounded-3xl border border-gold/10 text-center shadow-sm">
+                        <i class="fa-solid fa-quote-left text-2xl text-gold mb-4"></i>
+                        <p class="text-lg italic leading-relaxed text-gray-700">
+                            "아이들이 민감한 피부라 비누 하나 고르는 것도 일이었는데, 성분이 너무 착해서 안심하고 사용해요. 아이들도 좋아하고 온 가족 정착템이 되었습니다."
+                        </p>
+                        <p class="mt-6 text-gray-500 font-bold">- 실사용자 이OO 님 리얼 리뷰</p>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="bg-gray-50 p-10 rounded-3xl border border-gold/10 text-center shadow-sm">
+                        <i class="fa-solid fa-quote-left text-2xl text-gold mb-4"></i>
+                        <p class="text-lg italic leading-relaxed text-gray-700">
+                            "유황 비누라고 해서 냄새 걱정을 했는데 전혀 안 나고 오히려 은은하고 깨끗한 느낌입니다. 세정력이 좋으면서도 순해서 아침 세안용으로 매일 사용하고 있는데 대만족입니다."
+                        </p>
+                        <p class="mt-6 text-gray-500 font-bold">- 실사용자 최OO 님 리얼 리뷰</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Yogurt Extract -->
+    <section class="w-full section-gap bg-beige">
+        <div class="max-w-7xl mx-auto flex flex-col space-y-10">
+            <img src="images/요쿠르트추출물_1.jpg" alt="Yogurt Extract Header" class="fade-in">
+            <img src="images/7.요쿠르트추출물.jpg" alt="Yogurt Extract 1" class="fade-in">
+            <img src="images/8.요쿠르트추출물효능.jpg" alt="Yogurt Extract 2" class="fade-in">
+        </div>
+    </section>
+
+    <!-- Section 8: Usage & Recommendation -->
+    <section class="w-full section-gap bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col space-y-10">
+            <img src="images/9.유황비누사용방법.jpg" alt="How to Use" class="fade-in">
+            <img src="images/10.유황비누사용추천.jpg" alt="Product Recommendation" class="fade-in">
+        </div>
+    </section>
+
+    <!-- Section 9: CTA (Purchase Offer) -->
+    <section class="py-24 bg-gold text-white text-center">
+        <div class="max-w-6xl mx-auto px-6 fade-in">
             
-            <div class="mt-4">
-                <a href="https://vcshop.gcoop.com/kr/nonMemberOrder?no=92&signature=4a110d2f73da1d07cc86e60feeb6d384c119393ea5ec1f7a671338ab3bf6ba87" target="_blank" class="inline-block bg-teal-600 text-white px-12 py-5 rounded-2xl font-black text-xl shadow-2xl hover:bg-teal-700 transition-all transform hover:-translate-y-1 active:scale-95">
-                    케어셀라 유황비누(4ea) 구매하기
+            <!-- 추가된 이미지: 유황비누10.jpg -->
+            <div class="mb-12">
+                <img src="images/유황비누10.jpg" alt="Sulfur Soap 10" class="w-full max-w-2xl mx-auto rounded-3xl shadow-2xl">
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 italic text-white/95">Clean Beauty Philosophy</h2>
+            
+            <!-- 추가된 토글 버튼 영역 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="toggleExtraInfo('details')" class="bg-white/20 hover:bg-white/30 text-white px-6 py-2 rounded-full border border-white/40 transition font-medium">
+                    상세정보 보기
+                </button>
+                <button onclick="toggleExtraInfo('shipping')" class="bg-white/20 hover:bg-white/30 text-white px-6 py-2 rounded-full border border-white/40 transition font-medium">
+                    배송/교환/반품
+                </button>
+            </div>
+
+            <!-- 토글 이미지 컨테이너 -->
+            <div id="extra-info-details" class="hidden mb-12 fade-in">
+                <img src="images/정보공시.jpg" alt="Detailed Spec" class="w-full max-w-4xl mx-auto rounded-2xl shadow-xl">
+            </div>
+            <div id="extra-info-shipping" class="hidden mb-12 fade-in">
+                <img src="images/배송정보_1.jpg" alt="Shipping Info" class="w-full max-w-4xl mx-auto rounded-2xl shadow-xl">
+            </div>
+
+            <p class="text-xl md:text-2xl mb-12 opacity-90">"히말라야의 정화력을 당신의 욕실로"</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-8 items-stretch">
+                <!-- Option 1: 1 Set -->
+                <a href="https://vcshop.gcoop.com/kr/nonMemberOrder?no=593&signature=54cd96d3114d1f6b2c2448db8eec08234b441eb5547ed470812d6eab16ee8fc9" 
+                   target="_blank" 
+                   class="cta-button bg-white text-gold flex-1 p-8 rounded-3xl shadow-2xl flex flex-col justify-between items-center text-center">
+                    <div class="w-full">
+                        <span class="text-3xl font-bold mb-3 block">구매하기</span>
+                        <div class="h-px bg-gold/10 w-full mb-4"></div>
+                        <span class="text-lg font-medium block mb-4 text-gray-800">
+                            케어셀라 유황비누 1세트 (4ea)
+                        </span>
+                        <div class="bg-gray-50 py-4 px-2 rounded-2xl">
+                            <p class="text-sm text-gray-400 line-through mb-1">정상가 29,000원</p>
+                            <p class="text-xl font-bold text-gold">할인가 19,000원</p>
+                            <p class="text-[11px] text-gray-500 mt-1 font-medium">(택배비 2,500원 별도)</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-cart-arrow-down mt-8 text-2xl"></i>
+                </a>
+
+                <!-- Option 2: 3 Sets -->
+                <a href="https://vcshop.gcoop.com/kr/nonMemberOrder?no=595&signature=7f838ff8b620ca48f06a9933205a003dc81b44c2a39d7999049b1523b3d0e0ca" 
+                   target="_blank" 
+                   class="cta-button bg-white text-gold flex-1 p-8 rounded-3xl shadow-2xl flex flex-col justify-between items-center text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-4 py-1 rounded-bl-xl">BEST CHOICE</div>
+                    <div class="w-full">
+                        <span class="text-3xl font-bold mb-3 block text-red-600">구매하기</span>
+                        <div class="h-px bg-gold/10 w-full mb-4"></div>
+                        <span class="text-lg font-medium block mb-4 text-gray-800">
+                            케어셀라 유황비누 3세트 (12ea)
+                        </span>
+                        <div class="bg-red-50 py-4 px-2 rounded-2xl border border-red-100">
+                            <p class="text-sm text-red-400 line-through mb-1">정상가 87,000원</p>
+                            <p class="text-xl font-bold text-red-600">할인가 57,000원</p>
+                            <p class="text-[11px] text-red-500 mt-1 font-bold">무료배송 혜택</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-fire-flame-curved mt-8 text-2xl text-red-500"></i>
                 </a>
             </div>
-        </div>
-        <div class="relative w-full max-w-2xl scroll-ani delay-200 mt-6">
-            <img src="images/유황비누1.jpg" alt="유황비누 메인" class="w-full h-auto rounded-[2.5rem] shadow-2xl img-hover" onerror="this.src='https://via.placeholder.com/800x800?text=SULFUR+SOAP+MAIN'">
-        </div>
-    </section>
 
-    <!-- [Page 2: 문제 제기 & 공감] -->
-    <section class="py-32 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
-                <div class="scroll-ani">
-                    <img src="images/유황비누4.jpg" alt="피부 고민" class="rounded-3xl shadow-2xl w-full" onerror="this.src='https://via.placeholder.com/600x600?text=PROBLEM+VISUAL'">
-                </div>
-                <div class="scroll-ani delay-300">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-10 leading-tight">아무리 씻어도 가렵고 푸석한 피부,<br><span class="text-teal-600 underline decoration-teal-100 underline-offset-8">근본적인 해결책</span>을 찾으셨나요?</h2>
-                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-10">
-                        강한 화학 계면활성제와 인공 향료는 피부 장벽을 무너뜨리는 주범입니다. 씻을수록 건조해지는 악순환, 이제는 멈춰야 합니다.
-                    </p>
-                    <div class="space-y-5">
-                        <div class="flex items-center p-5 bg-red-50 rounded-2xl border border-red-100">
-                            <div class="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center mr-4 font-black">!</div>
-                            <p class="text-gray-800 font-bold">세안 직후 느껴지는 극심한 피부 당김</p>
-                        </div>
-                        <div class="flex items-center p-5 bg-red-50 rounded-2xl border border-red-100">
-                            <div class="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center mr-4 font-black">!</div>
-                            <p class="text-gray-800 font-bold">쉽게 붉어지고 예민해지는 트러블 피부</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- [Page 3: 기업 신뢰 입증] -->
-    <section class="py-32 px-6 bg-gray-950 text-white overflow-hidden">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-teal-400 font-bold tracking-[0.2em] uppercase mb-6 scroll-ani">19 Years of Experience</h2>
-            <h3 class="text-4xl md:text-6xl font-black mb-16 scroll-ani leading-tight">전 세계가 인정한 글로벌 B Corp 기업,<br>제너럴바이오의 압도적 기술력</h3>
-            
-            <div class="relative rounded-[3rem] overflow-hidden mb-20 shadow-[0_0_50px_rgba(0,0,0,0.5)] scroll-ani group">
-                <img src="images/제너럴바이오.jpg" alt="제너럴바이오 시설" class="w-full h-[400px] md:h-[600px] object-cover opacity-60 group-hover:scale-105 transition-transform duration-[2s]" onerror="this.src='https://via.placeholder.com/1200x600?text=GENERAL+BIO+FACILITY'">
-                <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 px-6">
-                    <p class="text-2xl md:text-4xl font-black italic mb-4">"당신의 건강을 책임질 가장 안전한 기준"</p>
-                    <p class="text-teal-400 font-medium">GMP / ISO 인증 최첨단 제조 시설</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 scroll-ani">
-                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <p class="text-4xl font-black text-teal-400 mb-3">19년</p>
-                    <p class="text-sm text-gray-400 font-bold">누적 연구 데이터</p>
-                </div>
-                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <p class="text-4xl font-black text-teal-400 mb-3">B Corp</p>
-                    <p class="text-sm text-gray-400 font-bold">글로벌 사회적 기업 인증</p>
-                </div>
-                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <p class="text-4xl font-black text-teal-400 mb-3">GMP</p>
-                    <p class="text-sm text-gray-400 font-bold">최첨단 품질 관리</p>
-                </div>
-                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
-                    <p class="text-4xl font-black text-teal-400 mb-3">EWG</p>
-                    <p class="text-sm text-gray-400 font-bold">그린 등급 원료 추구</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- [Page 4: USP 1 - 히말라야 유황] -->
-    <section class="py-32 px-6 bg-white overflow-hidden">
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <div class="flex-1 scroll-ani">
-                <h2 class="text-4xl md:text-5xl font-black mb-10 leading-tight">히말라야 암염 유황 100ppm,<br><span class="text-teal-600">자연이 준 천연 세정 에너지.</span></h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
-                    히말라야 암염은 2억 5천만 년 전 바다가 융기되어 생성된 순수 소금입니다. 자연적으로 함유된 유황 성분은 피부의 불필요한 각질을 자극 없이 녹여주고 유해균으로부터 피부를 보호하는 '천연 방패'가 되어줍니다.
-                </p>
-                <div class="p-6 bg-gray-50 rounded-2xl border-l-8 border-teal-500">
-                    <p class="font-black text-gray-900 text-lg italic">"인공 유황이 아닌, 자연 유래 유황의 힘을 믿으세요."</p>
-                </div>
-            </div>
-            <div class="flex-1 scroll-ani delay-300">
-                <img src="images/유황비누5.jpg" alt="유황 성분" class="rounded-[3rem] shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-transform duration-700" onerror="this.src='https://via.placeholder.com/600x600?text=SULFUR+INGREDIENT'">
-            </div>
-        </div>
-    </section>
-
-    <!-- [Page 5: USP 2 - CP 공법] -->
-    <section class="py-32 px-6 bg-teal-50">
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <div class="flex-1 order-2 lg:order-1 scroll-ani">
-                <img src="images/유황비누7.jpg" alt="CP 비누 숙성" class="rounded-[3rem] shadow-2xl img-hover" onerror="this.src='https://via.placeholder.com/600x600?text=CP+PROCESS'">
-            </div>
-            <div class="flex-1 order-1 lg:order-2 scroll-ani delay-300">
-                <h2 class="text-4xl md:text-5xl font-black mb-10 leading-tight">48시간의 기다림이 만든 촉촉함,<br><span class="text-teal-600">저온 숙성 CP 공법.</span></h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
-                    뜨거운 열로 빠르게 찍어내는 공장식 비누와는 차원이 다릅니다. 원료의 영양 성분을 그대로 보존하기 위해 48시간 이상 저온 숙성합니다. 이 과정에서 생성된 풍부한 천연 글리세린이 세안 후에도 피부를 수분막으로 감싸줍니다.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- [Page 6: USP 3 - 요구르트 영양] -->
-    <section class="py-32 px-6 bg-white">
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <div class="flex-1 scroll-ani">
-                <h2 class="text-4xl md:text-5xl font-black mb-10 leading-tight">요구르트와 비피더스로<br><span class="text-teal-600">채우는 피부 영양 밸런스.</span></h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
-                    요구르트의 젖산(AHA) 성분은 매끄러운 피부 결을 만들어줍니다. 비타민A, B2와 비피더스균이 함유되어 세안하는 동안 피부에 영양을 공급하고 본연의 자생력을 높여줍니다.
-                </p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 bg-teal-50 rounded-xl text-center font-bold text-teal-700">#각질케어</div>
-                    <div class="p-4 bg-teal-50 rounded-xl text-center font-bold text-teal-700">#영양공급</div>
-                </div>
-            </div>
-            <div class="flex-1 scroll-ani delay-300">
-                <img src="images/유황비누8.jpg" alt="성분 배합" class="rounded-[3rem] shadow-2xl" onerror="this.src='https://via.placeholder.com/600x600?text=YOGURT+INGREDIENT'">
-            </div>
-        </div>
-    </section>
-
-    <!-- [Page 7: 제형/거품] -->
-    <section class="py-32 px-6 bg-gray-50 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-6xl font-black mb-12 scroll-ani">생크림처럼 쫀쫀한 <span class="text-teal-600 underline decoration-teal-200 decoration-8 underline-offset-8">미세 거품</span></h2>
-            <div class="relative mb-16 scroll-ani">
-                <img src="images/유황비누6.jpg" alt="images/미세거품.jpg" class="w-full h-auto rounded-[3rem] shadow-2xl border-8 border-white" onerror="this.src='https://via.placeholder.com/800x500?text=MICRO+FOAM'">
-            </div>
-            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed scroll-ani font-medium">
-                모공보다 작은 미세 입자가 모공 속 노폐물과 피지를 자석처럼 흡착합니다. 손과 피부 사이의 마찰을 줄여 예민한 피부도 편안한 세안을 즐길 수 있습니다.
-            </p>
-        </div>
-    </section>
-
-    <!-- [Page 8: 사회적 증거/인증] -->
-    <section class="py-32 px-6 bg-white border-t border-gray-100">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-black mb-20 scroll-ani">전 세계가 신뢰하는 가장 까다로운 인증</h2>
-            <div class="grid lg:grid-cols-2 gap-16 items-center scroll-ani">
-                <img src="images/유황비누9.jpg" alt="Dermatest 인증" class="rounded-3xl shadow-xl border border-gray-100" onerror="this.src='https://via.placeholder.com/500x500?text=CERTIFICATE'">
-                <div class="text-left">
-                    <h3 class="text-3xl font-black mb-6 text-teal-700 uppercase tracking-tight">German Dermatest EXCELLENT</h3>
-                    <p class="text-lg text-gray-600 leading-relaxed mb-10 font-medium">
-                        세계적인 피부 과학 연구소인 독일 더마테스트에서 최고 등급인 'EXCELLENT'를 획득했습니다. 민감한 피부도 안심하고 사용할 수 있는 검증된 안전함입니다.
-                    </p>
-                    <div class="p-8 bg-teal-50 rounded-3xl relative">
-                        <span class="absolute -top-4 -left-2 text-6xl text-teal-200 font-serif">"</span>
-                        <p class="text-gray-700 italic font-bold text-lg relative z-10 leading-relaxed">
-                            피부 트러블 때문에 세안이 겁났던 시기가 지났어요. 이제는 온 가족이 이 비누만 씁니다. 당김 없이 매끄러운 느낌이 너무 좋아요.
-                        </p>
-                        <p class="mt-4 text-sm text-gray-400 font-bold">- 실사용자 김OO 님 (네이버 스마트스토어 리뷰 중)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- [Page 9: 구매 유도 (CTA)] -->
-    <section class="py-32 px-6 bg-teal-900 text-white text-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-teal-400 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-teal-600 rounded-full blur-[100px]"></div>
-        </div>
-
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="mb-16 scroll-ani">
-                <img src="images/유황비누10.jpg" alt="제품 세트" class="w-full h-auto rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] mb-16 border-8 border-white/10" onerror="this.src='https://via.placeholder.com/800x500?text=PRODUCT+SET'">
-            </div>
-            
-            <h2 class="text-4xl md:text-6xl font-black mb-10 scroll-ani leading-tight">당신의 소중한 피부를 위한 선택,<br><span class="text-teal-400">지금 바로 시작하세요.</span></h2>
-            <p class="text-xl text-teal-100 mb-16 scroll-ani font-medium opacity-80 italic">"히말라야 유황의 힘으로 되찾는 피부 본연의 건강함"</p>
-            
-            <div class="bg-white/10 backdrop-blur-xl p-10 md:p-14 rounded-[3rem] border border-white/20 mb-16 scroll-ani shadow-2xl">
-                <div class="flex flex-col lg:flex-row justify-between items-center gap-10">
-                    <div class="text-center lg:text-left">
-                        <p class="text-teal-300 font-black tracking-widest mb-3 uppercase text-sm">Official Direct Store</p>
-                        <p class="text-3xl md:text-4xl font-black">케어셀라 유황비누(4ea)</p>
-                    </div>
-                    <!-- 요청하신 구매 버튼 링크 및 텍스트 적용 -->
-                    <a href="https://vcshop.gcoop.com/kr/nonMemberOrder?no=92&signature=4a110d2f73da1d07cc86e60feeb6d384c119393ea5ec1f7a671338ab3bf6ba87" target="_blank" class="w-full lg:w-auto px-16 py-6 bg-white text-teal-900 text-2xl font-black rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:bg-teal-50 transition-all transform hover:-translate-y-2 active:scale-95 text-center">
-                        구매하기
-                    </a>
-                </div>
-            </div>
-
-            <!-- [추가: 배송/교환/반품 안내 섹션] -->
-            <div class="mt-10 scroll-ani">
-                <button id="toggle-policy" class="text-teal-400 border border-teal-400/40 px-10 py-3 rounded-2xl hover:bg-teal-400/10 transition-all text-base font-black tracking-tight flex items-center mx-auto gap-3">
-                    배송/교환/반품 안내 확인하기
-                    <svg id="chevron-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-                <div id="policy-content" class="mt-12 bg-white rounded-[2.5rem] shadow-2xl">
-                    <img src="images/배송교환반품.png" alt="안내 이미지" class="w-full h-auto" onerror="this.src='https://via.placeholder.com/800x1500?text=SHIPPING+POLICY+IMAGE'">
-                </div>
-            </div>
-            
-            <div class="mt-24 space-y-4 scroll-ani">
-                <p class="text-teal-400 font-black text-xs md:text-sm tracking-[0.3em] uppercase opacity-70">Clean Beauty Philosophy</p>
-                <p class="text-gray-400 text-xs md:text-sm font-bold">무방부제 · 무색소 · 무인공향 · 무합성계면활성제(SLS/SLES)</p>
-            </div>
+            <p class="mt-16 text-white/70 text-sm">무방부제 · 무색소 · 무인공향 · 무합성계면활성제(SLS/SLES)</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-gray-950 border-t border-white/5 text-center px-6">
-        <div class="max-w-4xl mx-auto">
-            <p class="text-teal-600 font-black text-2xl mb-6">CareCella</p>
-            <p class="text-gray-500 text-xs leading-relaxed max-w-lg mx-auto mb-8 font-medium">
-                본 제품은 질병의 예방 및 치료를 위한 의약품이 아닙니다.<br>
-                화장품법을 준수하며, 안전한 제조 환경에서 생산되었습니다.
-            </p>
-            <p class="text-gray-600 text-[10px] font-bold tracking-widest uppercase">© 제너럴바이오(주) & 지쿱(주). All rights reserved.</p>
+    <footer class="py-16 bg-gray-900 text-gray-500 text-center text-xs">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="mb-4 font-bold text-gray-400 text-sm tracking-widest uppercase">CareCella Brand Store</p>
+            <p class="leading-relaxed">본 상세페이지는 케어셀라 에코어스노우 유황비누 정식 제품 가이드를 기반으로 제작되었습니다.<br>상품 주문 시 지쿱 공식 쇼핑몰 결제 시스템으로 연결됩니다.</p>
+            <p class="mt-6">© 2026 General Bio Co., Ltd. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- 카카오톡 원형 상담 버튼 -->
+    <a href="http://pf.kakao.com/_vXxnQn/chat" target="_blank" class="floating-kakao">
+        <i class="fa-solid fa-comment"></i>
+        <span>상담</span>
+    </a>
+
     <script>
-        // 1. 스크롤 애니메이션 (Intersection Observer)
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            document.querySelectorAll('.scroll-ani').forEach(el => observer.observe(el));
-        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-        // 2. 상단 고정 네비게이션 가시성 제어
-        const topNav = document.getElementById('top-nav');
-        window.addEventListener('scroll', () => {
-            // 메인 인트로가 지나면 나타남
-            if (window.scrollY > 600) {
-                topNav.classList.add('show');
-            } else {
-                topNav.classList.remove('show');
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // 토글 정보 보기 기능
+        function toggleExtraInfo(type) {
+            const detailsDiv = document.getElementById('extra-info-details');
+            const shippingDiv = document.getElementById('extra-info-shipping');
+
+            if (type === 'details') {
+                detailsDiv.classList.toggle('hidden');
+                shippingDiv.classList.add('hidden');
+                if (!detailsDiv.classList.contains('hidden')) {
+                    detailsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else if (type === 'shipping') {
+                shippingDiv.classList.toggle('hidden');
+                detailsDiv.classList.add('hidden');
+                if (!shippingDiv.classList.contains('hidden')) {
+                    shippingDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             }
-        });
-
-        // 3. 배송/교환/반품 안내 토글 로직
-        const policyBtn = document.getElementById('toggle-policy');
-        const policyContent = document.getElementById('policy-content');
-        const chevron = document.getElementById('chevron-icon');
-
-        policyBtn.addEventListener('click', () => {
-            const isOpen = policyContent.classList.toggle('open');
-            
-            if(isOpen) {
-                policyBtn.innerHTML = '배송/교환/반품 안내 닫기 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" /></svg>';
-            } else {
-                policyBtn.innerHTML = '배송/교환/반품 안내 확인하기 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" /></svg>';
-                // 닫을 때 버튼 위치로 부드럽게 스크롤 이동
-                policyBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        });
+        }
     </script>
 </body>
 </html>
